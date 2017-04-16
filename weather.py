@@ -14,15 +14,26 @@ class Weather:
     def __init__(self, zipcode):
         self.zipcode = zipcode
 
-    def get_request(self):
-        feature = features[0]
-        return requests.get('{}{}{}{}'.format(base_url, feature, self.zipcode, ".json"))
+    def __repr__(self):
+        return "Weather({})".format(self.zipcode)
+
+    def __str__(self):
+        return self.__repr__()
+
+    def get_request(self, zipcode, feature):
+        all_results = []
+        for feature in features:
+            get = requests.get('{}{}q/{}{}'.format(base_url, feature, zipcode, ".json"))
+            all_results.append(get.json())
+
+        return all_results
 
     # self.url.format(self.zipcode)
 
 
 class CurrentCondition(Weather):
-    pass
+    def show_current_conditions(self, feature):
+        return Weather.get_request(27573, feature)
 
 
 class TenDayForecast(Weather):
