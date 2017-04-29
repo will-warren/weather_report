@@ -2,7 +2,8 @@
 # get user's zip and return weather
 # later add regex to accept zips and city names
 import os
-from weather_cat import *
+from weather_cat import show_cc, show_10day, show_sun, get_hurricanes, get_alerts
+
 
 def main():
     # greeting
@@ -10,9 +11,10 @@ def main():
     print("WEATHER CAT\n")
     print("weather on the meows\n\n")
 
-    #get info and set up choice menu
+    # get info and set up choice menu
     zipcode = input("Enter your zipcode: ")
-    options = ["View All", 'Current Conditions', "10 Day Forecast", "Sunrise/Sunset", "Weather Alerts", "Active Hurricanes", "Quit"]
+    options = ["View All", 'Current Conditions', "10 Day Forecast",
+               "Sunrise/Sunset", "Weather Alerts", "Active Hurricanes", "Quit"]
     options = zip(range(len(options)), options)
 
     # load weather according to choice and zip
@@ -44,8 +46,6 @@ def main():
             exit()
         else:
             print("Sorry that wasn't a valid choice, try again")
-
-
 
 
 if __name__ == '__main__':

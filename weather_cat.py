@@ -1,7 +1,7 @@
 # import unittests
-from weather import *
-import json
-import requests
+from weather import CurrentConditions, TenDayForecast, SunCycle, WeatherAlert, Hurricanes
+# import json
+# import requests
 
 
 def show_cc(zipcode):
@@ -15,7 +15,7 @@ def show_10day(zipcode):
 
 
 def show_sun(zipcode):
-    sun= SunCycle(zipcode)
+    sun = SunCycle(zipcode)
     return sun.get_sunrise(), sun.get_sunset()
 
 
